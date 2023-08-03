@@ -1,0 +1,5 @@
+﻿<Properties StartupConfiguration="{CD657996-CEF6-475D-80BF-31B46B0BF20D}|https">
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.ItemProperties.BulkyWeb PreferredExecutionTarget="/Applications/Microsoft Edge.app" />
+  <MonoDevelop.Ide.ItemProperties.BulkyWebRazor__Temp FirstBuild="True" PreferredExecutionTarget="/Applications/Microsoft Edge.app" />
+</Properties>
