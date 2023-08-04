@@ -1,5 +1,43 @@
-﻿<Properties StartupConfiguration="{CD657996-CEF6-475D-80BF-31B46B0BF20D}|https">
+﻿<Properties StartupConfiguration="{582495EE-2A34-463F-9608-079112E195EC}|https">
+  <MonoDevelop.Ide.ItemProperties.Bulky.Utility FirstBuild="True" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.Workbench ActiveDocument="BulkyWeb/Views/Category/Create.cshtml">
+    <Files>
+      <File FileName="BulkyWeb/Views/Category/Create.cshtml" Line="16" Column="42" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="Bulky" expanded="True">
+            <Node name="BulkyWeb">
+              <Node name="Views">
+                <Node name="Category">
+                  <Node name="Create.cshtml" selected="True" />
+                </Node>
+              </Node>
+              <Node name="wwwroot" expanded="True">
+                <Node name="css" expanded="True" />
+                <Node name="lib" expanded="True">
+                  <Node name="bootstrap" expanded="True">
+                    <Node name="dist" expanded="True">
+                      <Node name="css" expanded="True" />
+                    </Node>
+                  </Node>
+                </Node>
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.ItemProperties.Bulky.DataAccess FirstBuild="True" />
+  <MonoDevelop.Ide.ItemProperties.Bulky.Models FirstBuild="True" />
   <MonoDevelop.Ide.ItemProperties.BulkyWeb PreferredExecutionTarget="/Applications/Microsoft Edge.app" />
-  <MonoDevelop.Ide.ItemProperties.BulkyWebRazor__Temp FirstBuild="True" PreferredExecutionTarget="/Applications/Microsoft Edge.app" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.BulkyWebRazor__Temp PreferredExecutionTarget="/Applications/Microsoft Edge.app" />
 </Properties>
