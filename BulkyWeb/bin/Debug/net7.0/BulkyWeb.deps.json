@@ -8,6 +8,7 @@
     ".NETCoreApp,Version=v7.0": {
       "BulkyWeb/1.0.0": {
         "dependencies": {
+          "Bulky.DataAccess": "1.0.0",
           "Microsoft.EntityFrameworkCore": "7.0.9",
           "Microsoft.EntityFrameworkCore.Tools": "7.0.9",
           "Npgsql.EntityFrameworkCore.PostgreSQL": "7.0.4"
@@ -181,6 +182,27 @@
         "dependencies": {
           "System.Text.Encodings.Web": "7.0.0"
         }
+      },
+      "Bulky.DataAccess/1.0.0": {
+        "dependencies": {
+          "Bulky.Models": "1.0.0",
+          "Bulky.Utility": "1.0.0",
+          "Microsoft.EntityFrameworkCore": "7.0.9",
+          "Npgsql.EntityFrameworkCore.PostgreSQL": "7.0.4"
+        },
+        "runtime": {
+          "Bulky.DataAccess.dll": {}
+        }
+      },
+      "Bulky.Models/1.0.0": {
+        "runtime": {
+          "Bulky.Models.dll": {}
+        }
+      },
+      "Bulky.Utility/1.0.0": {
+        "runtime": {
+          "Bulky.Utility.dll": {}
+        }
       }
     }
   },
@@ -350,6 +372,21 @@
       "sha512": "sha512-DaGSsVqKsn/ia6RG8frjwmJonfos0srquhw09TlT8KRw5I43E+4gs+/bZj4K0vShJ5H9imCuXupb4RmS+dBy3w==",
       "path": "system.text.json/7.0.0",
       "hashPath": "system.text.json.7.0.0.nupkg.sha512"
+    },
+    "Bulky.DataAccess/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Bulky.Models/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Bulky.Utility/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
     }
   }
 }

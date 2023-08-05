@@ -40,3 +40,9 @@
 /Users/darwin/RiderProjects/Bulky/BulkyWeb/bin/Debug/net7.0/Npgsql.EntityFrameworkCore.PostgreSQL.dll
 /Users/darwin/RiderProjects/Bulky/BulkyWeb/bin/Debug/net7.0/System.CodeDom.dll
 /Users/darwin/RiderProjects/Bulky/BulkyWeb/obj/Debug/net7.0/BulkyWeb.csproj.CopyComplete
+/Users/darwin/RiderProjects/Bulky/BulkyWeb/bin/Debug/net7.0/Bulky.DataAccess.dll
+/Users/darwin/RiderProjects/Bulky/BulkyWeb/bin/Debug/net7.0/Bulky.Models.dll
+/Users/darwin/RiderProjects/Bulky/BulkyWeb/bin/Debug/net7.0/Bulky.Utility.dll
+/Users/darwin/RiderProjects/Bulky/BulkyWeb/bin/Debug/net7.0/Bulky.DataAccess.pdb
+/Users/darwin/RiderProjects/Bulky/BulkyWeb/bin/Debug/net7.0/Bulky.Models.pdb
+/Users/darwin/RiderProjects/Bulky/BulkyWeb/bin/Debug/net7.0/Bulky.Utility.pdb

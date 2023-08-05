@@ -1,0 +1,12 @@
+/Users/darwin/RiderProjects/Bulky/Bulky.Utility/bin/Debug/net7.0/Bulky.Utility.deps.json
+/Users/darwin/RiderProjects/Bulky/Bulky.Utility/bin/Debug/net7.0/Bulky.Utility.dll
+/Users/darwin/RiderProjects/Bulky/Bulky.Utility/bin/Debug/net7.0/Bulky.Utility.pdb
+/Users/darwin/RiderProjects/Bulky/Bulky.Utility/obj/Debug/net7.0/Bulky.Utility.csproj.AssemblyReference.cache
+/Users/darwin/RiderProjects/Bulky/Bulky.Utility/obj/Debug/net7.0/Bulky.Utility.GeneratedMSBuildEditorConfig.editorconfig
+/Users/darwin/RiderProjects/Bulky/Bulky.Utility/obj/Debug/net7.0/Bulky.Utility.AssemblyInfoInputs.cache
+/Users/darwin/RiderProjects/Bulky/Bulky.Utility/obj/Debug/net7.0/Bulky.Utility.AssemblyInfo.cs
+/Users/darwin/RiderProjects/Bulky/Bulky.Utility/obj/Debug/net7.0/Bulky.Utility.csproj.CoreCompileInputs.cache
+/Users/darwin/RiderProjects/Bulky/Bulky.Utility/obj/Debug/net7.0/Bulky.Utility.dll
+/Users/darwin/RiderProjects/Bulky/Bulky.Utility/obj/Debug/net7.0/refint/Bulky.Utility.dll
+/Users/darwin/RiderProjects/Bulky/Bulky.Utility/obj/Debug/net7.0/Bulky.Utility.pdb
+/Users/darwin/RiderProjects/Bulky/Bulky.Utility/obj/Debug/net7.0/ref/Bulky.Utility.dll
