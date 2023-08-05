@@ -1,0 +1,12 @@
+/Users/darwin/RiderProjects/Bulky/BulkyBook.Models/bin/Debug/net7.0/BulkyBook.Models.deps.json
+/Users/darwin/RiderProjects/Bulky/BulkyBook.Models/bin/Debug/net7.0/BulkyBook.Models.dll
+/Users/darwin/RiderProjects/Bulky/BulkyBook.Models/bin/Debug/net7.0/BulkyBook.Models.pdb
+/Users/darwin/RiderProjects/Bulky/BulkyBook.Models/obj/Debug/net7.0/BulkyBook.Models.csproj.AssemblyReference.cache
+/Users/darwin/RiderProjects/Bulky/BulkyBook.Models/obj/Debug/net7.0/BulkyBook.Models.GeneratedMSBuildEditorConfig.editorconfig
+/Users/darwin/RiderProjects/Bulky/BulkyBook.Models/obj/Debug/net7.0/BulkyBook.Models.AssemblyInfoInputs.cache
+/Users/darwin/RiderProjects/Bulky/BulkyBook.Models/obj/Debug/net7.0/BulkyBook.Models.AssemblyInfo.cs
+/Users/darwin/RiderProjects/Bulky/BulkyBook.Models/obj/Debug/net7.0/BulkyBook.Models.csproj.CoreCompileInputs.cache
+/Users/darwin/RiderProjects/Bulky/BulkyBook.Models/obj/Debug/net7.0/BulkyBook.Models.dll
+/Users/darwin/RiderProjects/Bulky/BulkyBook.Models/obj/Debug/net7.0/refint/BulkyBook.Models.dll
+/Users/darwin/RiderProjects/Bulky/BulkyBook.Models/obj/Debug/net7.0/BulkyBook.Models.pdb
+/Users/darwin/RiderProjects/Bulky/BulkyBook.Models/obj/Debug/net7.0/ref/BulkyBook.Models.dll
