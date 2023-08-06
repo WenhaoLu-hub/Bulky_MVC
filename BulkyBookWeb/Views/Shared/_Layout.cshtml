@@ -35,11 +35,14 @@
                             <li class="nav-item">
                                 <a class="dropdown-item" asp-area="Admin" asp-controller="Category" asp-action="Index">Category</a>
                             </li>
-                            
+                            <li class="nav-item">
+                                <a class="dropdown-item" asp-area="Admin" asp-controller="Product" asp-action="Index">Product</a>
+                            </li>
+
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
-                            
+
                         </ul>
                     </li>
                 </ul>
@@ -54,14 +57,14 @@
     </main>
 </div>
 
-    <footer class="footer border-top  text-muted bg-primary">
-        <div class="text-center">
-            Made with <i class="bi bi-heart-fill"></i> by Darwin<a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-        </div>
-    </footer>
-	<script src="~/lib/jquery/dist/jquery.min.js"></script>
-	<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-	<script src="~/js/site.js" asp-append-version="true"></script>
-	@await RenderSectionAsync("Scripts", required: false)
+<footer class="footer border-top  text-muted bg-primary">
+    <div class="text-center">
+        Made with <i class="bi bi-heart-fill"></i> by Darwin<a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+    </div>
+</footer>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="~/js/site.js" asp-append-version="true"></script>
+@await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

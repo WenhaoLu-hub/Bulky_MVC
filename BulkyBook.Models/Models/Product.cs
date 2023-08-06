@@ -9,7 +9,6 @@ public class Product
     public int ProductId { get; set; }
 
     [Required]
-    [DisplayName("Category Name")]
     public string Title { get; set; }
     [Required]
     public string ISBN { get; set; }
