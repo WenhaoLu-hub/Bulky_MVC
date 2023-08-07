@@ -19,9 +19,9 @@ public class ApplicationDbContext : DbContext
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<Category>().HasData(
-            new Category { CategoryId = 1, Name = "Web Development", DisplayOrder = 1 },
-            new Category { CategoryId = 2, Name = "Application Development", DisplayOrder = 2 },
-            new Category { CategoryId = 3, Name = "Graphic Design", DisplayOrder = 3 });
+            new Category { CategoryId = 1, Name = "Action", DisplayOrder = 1 },
+            new Category { CategoryId = 2, Name = "Novel", DisplayOrder = 2 },
+            new Category { CategoryId = 3, Name = "Science Fiction", DisplayOrder = 3 });
 
         modelBuilder.Entity<Product>().HasData(
             new Product
@@ -33,7 +33,9 @@ public class ApplicationDbContext : DbContext
                 ISBN = "9781598185218",
                 ListPrice = 5.99, 
                 ListPrice50 = 5.29, 
-                ListPrice100 = 4.99
+                ListPrice100 = 4.99,
+                CategoryId = 1,
+                ImageUrl = ""
             },
             new Product
             {
@@ -44,7 +46,10 @@ public class ApplicationDbContext : DbContext
                 ISBN = "9780684830490",
                 ListPrice = 5.99, 
                 ListPrice50 = 5.29, 
-                ListPrice100 = 4.99
+                ListPrice100 = 4.99,
+                CategoryId = 1,
+                ImageUrl = ""
+
             },
             new Product
             {
@@ -55,7 +60,9 @@ public class ApplicationDbContext : DbContext
                 ISBN = "0743273567", 
                 ListPrice = 5.99,
                 ListPrice50 = 5.29, 
-                ListPrice100 = 4.99
+                ListPrice100 = 4.99,
+                CategoryId = 1,
+                ImageUrl = ""
             });
     }
 }

@@ -2,6 +2,7 @@
 using BulkyBook.DataAccess.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -10,9 +11,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace BulkyBook.DataAccess.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230806155044_foreignKey")]
+    partial class foreignKey
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -85,10 +88,6 @@ namespace BulkyBook.DataAccess.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<string>("ImageUrl")
-                        .IsRequired()
-                        .HasColumnType("text");
-
                     b.Property<double>("ListPrice")
                         .HasColumnType("double precision");
 
@@ -116,7 +115,6 @@ namespace BulkyBook.DataAccess.Migrations
                             CategoryId = 1,
                             Description = "The Moon and Sixpence is a novel by W. Somerset Maugham, first published on 15 April 1919. It is told in episodic form by a first-person narrator providing a series of glimpses into the mind and soul of the central character, Charles Strickland, a middle-aged English stockbroker, who abandons his wife and children abruptly to pursue his desire to become an artist. The story is, in part, based on the life of the painter Paul Gauguin.",
                             ISBN = "9781598185218",
-                            ImageUrl = "",
                             ListPrice = 5.9900000000000002,
                             ListPrice100 = 4.9900000000000002,
                             ListPrice50 = 5.29,
@@ -129,7 +127,6 @@ namespace BulkyBook.DataAccess.Migrations
                             CategoryId = 1,
                             Description = "The Old Man and the Sea is a novella written by the American author Ernest Hemingway in 1951 in Cayo Blanco (Cuba), and published in 1952.[1] It was the last major work of fiction written by Hemingway that was published during his lifetime. One of his most famous works, it tells the story of Santiago, an aging Cuban fisherman who struggles with a giant marlin far out in the Gulf Stream off the coast of Cuba.",
                             ISBN = "9780684830490",
-                            ImageUrl = "",
                             ListPrice = 5.9900000000000002,
                             ListPrice100 = 4.9900000000000002,
                             ListPrice50 = 5.29,
@@ -142,7 +139,6 @@ namespace BulkyBook.DataAccess.Migrations
                             CategoryId = 1,
                             Description = "The Great Gatsby is a 1925 novel by American writer F. Scott Fitzgerald. Set in the Jazz Age on Long Island, near New York City, the novel depicts first-person narrator Nick Carraway's interactions with mysterious millionaire Jay Gatsby and Gatsby's obsession to reunite with his former lover, Daisy Buchanan.",
                             ISBN = "0743273567",
-                            ImageUrl = "",
                             ListPrice = 5.9900000000000002,
                             ListPrice100 = 4.9900000000000002,
                             ListPrice50 = 5.29,
