@@ -57,7 +57,6 @@
 /Users/darwin/RiderProjects/Bulky/BulkyBook.DataAccess/bin/Debug/net7.0/Microsoft.Extensions.ObjectPool.dll
 /Users/darwin/RiderProjects/Bulky/BulkyBook.DataAccess/bin/Debug/net7.0/Microsoft.AspNetCore.Connections.Abstractions.dll
 /Users/darwin/RiderProjects/Bulky/BulkyBook.DataAccess/bin/Debug/net7.0/Microsoft.AspNetCore.Components.Forms.dll
-/Users/darwin/RiderProjects/Bulky/BulkyBook.DataAccess/bin/Debug/net7.0/Microsoft.AspNetCore.Cryptography.Internal.dll
 /Users/darwin/RiderProjects/Bulky/BulkyBook.DataAccess/bin/Debug/net7.0/System.Security.Cryptography.Xml.dll
 /Users/darwin/RiderProjects/Bulky/BulkyBook.DataAccess/bin/Debug/net7.0/Microsoft.AspNetCore.Hosting.Server.Abstractions.dll
 /Users/darwin/RiderProjects/Bulky/BulkyBook.DataAccess/bin/Debug/net7.0/System.Security.Cryptography.Pkcs.dll
