@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "QyPhXfVX7LEqrPJ3rcwDvH/CGwalwtm5VFlO341NdRJE1Wxcy0qTF7DD+nHGXknz8mGGL3wQkmbDWd4G7zxAig==",
+  "dgSpecHash": "By16PkO+jqwUuoFzdqzYD+hdfK16U/Vki+dnP9xZbvk6K8FeXMlQQeIPaC6ClfHlT/Ijcqnka5x571tIONcV2Q==",
   "success": true,
   "projectFilePath": "/Users/darwin/RiderProjects/Bulky/BulkyWebRazor_Temp/BulkyWebRazor_Temp.csproj",
   "expectedPackageFiles": [
@@ -26,7 +26,10 @@
     "/Users/darwin/.nuget/packages/npgsql.entityframeworkcore.postgresql/7.0.4/npgsql.entityframeworkcore.postgresql.7.0.4.nupkg.sha512",
     "/Users/darwin/.nuget/packages/system.codedom/4.4.0/system.codedom.4.4.0.nupkg.sha512",
     "/Users/darwin/.nuget/packages/system.text.encodings.web/7.0.0/system.text.encodings.web.7.0.0.nupkg.sha512",
-    "/Users/darwin/.nuget/packages/system.text.json/7.0.0/system.text.json.7.0.0.nupkg.sha512"
+    "/Users/darwin/.nuget/packages/system.text.json/7.0.0/system.text.json.7.0.0.nupkg.sha512",
+    "/Users/darwin/.nuget/packages/microsoft.netcore.app.runtime.win-x64/7.0.9/microsoft.netcore.app.runtime.win-x64.7.0.9.nupkg.sha512",
+    "/Users/darwin/.nuget/packages/microsoft.aspnetcore.app.runtime.win-x64/7.0.9/microsoft.aspnetcore.app.runtime.win-x64.7.0.9.nupkg.sha512",
+    "/Users/darwin/.nuget/packages/microsoft.netcore.app.host.win-x64/7.0.9/microsoft.netcore.app.host.win-x64.7.0.9.nupkg.sha512"
   ],
   "logs": []
 }

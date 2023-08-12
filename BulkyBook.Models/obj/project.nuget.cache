@@ -1,8 +1,20 @@
 {
   "version": 2,
-  "dgSpecHash": "aysxFoEACCWWzEFET6epWKSDu1yhd32woGmd4d8QrUnuQM9zepr874rw0CaSK45j4UkBB4+otAMuQ4BLIvkj0Q==",
+  "dgSpecHash": "56tzOVXvGP7aaR0gyjkXaiDfu9fxYKwFKX1q+g1P3pe+5fBdgIw7SiaEyCr/J98NcXWKi1ZxOR2EDt3bUIGrHQ==",
   "success": true,
   "projectFilePath": "/Users/darwin/RiderProjects/Bulky/BulkyBook.Models/BulkyBook.Models.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "/Users/darwin/.nuget/packages/microsoft.aspnetcore.cryptography.internal/7.0.7/microsoft.aspnetcore.cryptography.internal.7.0.7.nupkg.sha512",
+    "/Users/darwin/.nuget/packages/microsoft.aspnetcore.cryptography.keyderivation/7.0.7/microsoft.aspnetcore.cryptography.keyderivation.7.0.7.nupkg.sha512",
+    "/Users/darwin/.nuget/packages/microsoft.extensions.caching.abstractions/7.0.0/microsoft.extensions.caching.abstractions.7.0.0.nupkg.sha512",
+    "/Users/darwin/.nuget/packages/microsoft.extensions.dependencyinjection/7.0.0/microsoft.extensions.dependencyinjection.7.0.0.nupkg.sha512",
+    "/Users/darwin/.nuget/packages/microsoft.extensions.dependencyinjection.abstractions/7.0.0/microsoft.extensions.dependencyinjection.abstractions.7.0.0.nupkg.sha512",
+    "/Users/darwin/.nuget/packages/microsoft.extensions.identity.core/7.0.7/microsoft.extensions.identity.core.7.0.7.nupkg.sha512",
+    "/Users/darwin/.nuget/packages/microsoft.extensions.identity.stores/7.0.7/microsoft.extensions.identity.stores.7.0.7.nupkg.sha512",
+    "/Users/darwin/.nuget/packages/microsoft.extensions.logging/7.0.0/microsoft.extensions.logging.7.0.0.nupkg.sha512",
+    "/Users/darwin/.nuget/packages/microsoft.extensions.logging.abstractions/7.0.0/microsoft.extensions.logging.abstractions.7.0.0.nupkg.sha512",
+    "/Users/darwin/.nuget/packages/microsoft.extensions.options/7.0.1/microsoft.extensions.options.7.0.1.nupkg.sha512",
+    "/Users/darwin/.nuget/packages/microsoft.extensions.primitives/7.0.0/microsoft.extensions.primitives.7.0.0.nupkg.sha512"
+  ],
   "logs": []
 }
