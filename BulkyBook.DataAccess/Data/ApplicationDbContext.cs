@@ -17,7 +17,7 @@ public class ApplicationDbContext : IdentityDbContext<IdentityUser>
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         => optionsBuilder.UseNpgsql(
-            "User ID=darwin;Host=localhost;Port=5432;Database=bulky;Pooling=true;Connection Lifetime=0;");
+            "User ID=postgres;Host=localhost;Port=5432;Database=ptb;Pooling=true;Connection Lifetime=0;");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
