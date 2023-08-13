@@ -2385,6 +2385,9 @@
         }
       },
       "BulkyBook.Utility/1.0.0": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Identity.UI": "7.0.10"
+        },
         "runtime": {
           "BulkyBook.Utility.dll": {}
         }
