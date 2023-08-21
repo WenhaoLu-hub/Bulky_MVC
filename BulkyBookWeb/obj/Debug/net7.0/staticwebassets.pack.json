@@ -25,6 +25,10 @@
       "PackagePath": "staticwebassets/images/product/dde6398c-42bd-483e-ba4a-2d58b318e940.jpg"
     },
     {
+      "Id": "/Users/darwin/RiderProjects/Bulky/BulkyBookWeb/wwwroot/js/company.js",
+      "PackagePath": "staticwebassets/js/company.js"
+    },
+    {
       "Id": "/Users/darwin/RiderProjects/Bulky/BulkyBookWeb/wwwroot/js/product.js",
       "PackagePath": "staticwebassets/js/product.js"
     },

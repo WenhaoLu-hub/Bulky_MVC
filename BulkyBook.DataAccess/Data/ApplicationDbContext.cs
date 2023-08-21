@@ -14,6 +14,7 @@ public class ApplicationDbContext : IdentityDbContext<IdentityUser>
     public DbSet<Category> Categories { get; set; }
     public DbSet<Product> Products { get; set; }
     public DbSet<ApplicationUser> ApplicationUsers { get; set; }
+    public DbSet<Company> Companies { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         => optionsBuilder.UseNpgsql(
@@ -67,6 +68,18 @@ public class ApplicationDbContext : IdentityDbContext<IdentityUser>
                 ListPrice100 = 4.99,
                 CategoryId = 1,
                 ImageUrl = ""
+            });
+
+        modelBuilder.Entity<Company>().HasData(
+            new Company
+            {
+                CompanyId = 1,
+                Name = "Company1",
+                StreetAddress = "123 Main St",
+                City = "New York",
+                State = "NY",
+                PostalCode = "12345",
+                PhoneNumber = "1234567890"
             });
     }
 }
