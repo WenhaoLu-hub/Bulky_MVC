@@ -11,11 +11,16 @@ public class UnitOfWork : IUnitOfWork
     
     public ICompanyRepository Company { get; private set; }
     
+    public IShoppingCartRepository ShoppingCart { get; private set; }
+    public IApplicationUserRepository ApplicationUser { get; }
+
     private readonly ApplicationDbContext _context;
     
     public UnitOfWork( ApplicationDbContext context)
     {
         _context = context;
+        ApplicationUser = new ApplicationUserRepository(_context);
+        ShoppingCart =  new ShoppingCartRepository(_context);
         Category = new CategoryRepository(_context);
         Product = new ProductRepository(_context);
         Company = new CompanyRepository(_context);
