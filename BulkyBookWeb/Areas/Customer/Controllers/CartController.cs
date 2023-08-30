@@ -4,6 +4,7 @@ using BulkyBook.Models.Models;
 using BulkyBook.Models.ViewModels;
 using BulkyBook.Utility;
 using Microsoft.AspNetCore.Mvc;
+using Stripe.Checkout;
 
 namespace BulkyBookWeb.Areas.Customer.Controllers;
 
@@ -138,11 +139,37 @@ public class CartController : Controller
         if (applicationUser.CompanyId.GetValueOrDefault() == 0)
         {
             //regular customer
-            
-        }
-        else
-        {
-            
+            var domain = "http://localhost:5088/";
+            var options = new SessionCreateOptions
+            {
+                SuccessUrl = domain + $"customer/cart/OrderConfirmation?id={ShoppingCartVm.OrderHeader.Id}" ,
+                CancelUrl = domain + $"customer/cart/index" ,
+                LineItems = new List<SessionLineItemOptions>(),
+                Mode = "payment",
+            };
+            foreach (var item in ShoppingCartVm.ShoppingCartList)
+            {
+                var sessionLineItem = new SessionLineItemOptions
+                {
+                    PriceData = new SessionLineItemPriceDataOptions
+                    {
+                        UnitAmount = (long)(item.Price * 100),
+                        Currency = "usd",
+                        ProductData = new SessionLineItemPriceDataProductDataOptions
+                        {
+                            Name = item.Product.Title
+                        }
+                    },
+                    Quantity = item.Count
+                };
+                options.LineItems.Add(sessionLineItem);
+            }
+            var service = new SessionService();
+            Session session = service.Create(options);
+            _unitOfWork.OrderHeader.UpdateStripePaymentId(ShoppingCartVm.OrderHeader.Id, session.Id, session.PaymentIntentId);
+            _unitOfWork.Save();
+            Response.Headers.Add("Location", session.Url);
+            return new StatusCodeResult(303);
         }
         
         
@@ -151,6 +178,23 @@ public class CartController : Controller
 
     public IActionResult OrderConfirmation(int id)
     {
+        var orderHeader = _unitOfWork.OrderHeader.Get(x=>x.Id==id,includeProperties:"ApplicationUser");
+        if (orderHeader.PaymentStatus != SD.PaymentStatusDelayedPayment)
+        {
+            // customer
+            var service = new SessionService();
+            var session = service.Get(orderHeader.SessionId);
+            if (session.PaymentStatus.ToLower() == "paid")
+            {
+                _unitOfWork.OrderHeader.UpdateStripePaymentId(id,session.Id, session.PaymentIntentId);
+                _unitOfWork.OrderHeader.UpdateStatus(id,session.Id,SD.PaymentStatusApproved);
+                _unitOfWork.Save();
+            }
+        }
+
+        var shoppingCarts = _unitOfWork.ShoppingCart.GetAll(x => x.ApplicationUserId == orderHeader.ApplicationUserId).ToList();
+        _unitOfWork.ShoppingCart.RemoveRange(shoppingCarts);
+        _unitOfWork.Save();
         return View(id);
     }
     public IActionResult Remove(int cartId)

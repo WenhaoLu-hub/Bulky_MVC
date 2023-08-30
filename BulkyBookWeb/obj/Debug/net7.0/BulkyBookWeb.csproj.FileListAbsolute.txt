@@ -245,3 +245,4 @@
 /Users/darwin/RiderProjects/Bulky/BulkyBookWeb/bin/Debug/net7.0/Microsoft.Extensions.Options.dll
 /Users/darwin/RiderProjects/Bulky/BulkyBookWeb/bin/Debug/net7.0/Microsoft.AspNetCore.Identity.UI.dll
 /Users/darwin/RiderProjects/Bulky/BulkyBookWeb/bin/Debug/net7.0/Microsoft.Extensions.FileProviders.Embedded.dll
+/Users/darwin/RiderProjects/Bulky/BulkyBookWeb/bin/Debug/net7.0/Stripe.net.dll
