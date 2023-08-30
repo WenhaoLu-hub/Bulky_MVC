@@ -2,7 +2,7 @@ using BulkyBook.Models.Models;
 using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
-namespace BulkyBook.Models.VIewModels;
+namespace BulkyBook.Models.ViewModels;
 
 public class ProductVM
 {

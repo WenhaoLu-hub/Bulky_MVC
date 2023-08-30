@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "M65G2EdOnN9VNYP6aKd2QUFduEwDjHO5xREoO09SDtw=",
+  "Hash": "003LW5+opuMNKipDVuf13yE9EbRuQOjiRHCkDmjaEqs=",
   "Source": "BulkyBookWeb",
   "BasePath": "_content/BulkyBookWeb",
   "Mode": "Default",
@@ -1071,6 +1071,23 @@
       "OriginalItemSpec": "/Users/darwin/RiderProjects/Bulky/BulkyBookWeb/obj/Debug/net7.0/scopedcss/projectbundle/BulkyBookWeb.bundle.scp.css"
     },
     {
+      "Identity": "/Users/darwin/RiderProjects/Bulky/BulkyBookWeb/wwwroot/.DS_Store",
+      "SourceId": "BulkyBookWeb",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/darwin/RiderProjects/Bulky/BulkyBookWeb/wwwroot/",
+      "BasePath": "_content/BulkyBookWeb",
+      "RelativePath": ".DS_Store",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/.DS_Store"
+    },
+    {
       "Identity": "/Users/darwin/RiderProjects/Bulky/BulkyBookWeb/wwwroot/css/site.css",
       "SourceId": "BulkyBookWeb",
       "SourceType": "Discovered",
@@ -1103,6 +1120,40 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/favicon.ico"
+    },
+    {
+      "Identity": "/Users/darwin/RiderProjects/Bulky/BulkyBookWeb/wwwroot/images/book.png",
+      "SourceId": "BulkyBookWeb",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/darwin/RiderProjects/Bulky/BulkyBookWeb/wwwroot/",
+      "BasePath": "_content/BulkyBookWeb",
+      "RelativePath": "images/book.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/images/book.png"
+    },
+    {
+      "Identity": "/Users/darwin/RiderProjects/Bulky/BulkyBookWeb/wwwroot/images/lawn_leaf.jpg",
+      "SourceId": "BulkyBookWeb",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/darwin/RiderProjects/Bulky/BulkyBookWeb/wwwroot/",
+      "BasePath": "_content/BulkyBookWeb",
+      "RelativePath": "images/lawn_leaf.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/images/lawn_leaf.jpg"
     },
     {
       "Identity": "/Users/darwin/RiderProjects/Bulky/BulkyBookWeb/wwwroot/images/product/0320e1fd-929c-49ad-8eab-007f2fc94275.jpg",

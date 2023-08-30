@@ -9,40 +9,54 @@ public class Repository<T> : IRepository<T> where T : class
 {
     private readonly ApplicationDbContext _context;
     internal readonly DbSet<T> dbSet;
+
     public Repository(ApplicationDbContext context)
     {
         _context = context;
         dbSet = _context.Set<T>();
     }
 
-    public IEnumerable<T> GetAll(string? includeProperties = null)
+    public IEnumerable<T> GetAll(Expression<Func<T,bool>>? filter, string? includeProperties = null)
     {
         IQueryable<T> query = dbSet;
-        if (! string.IsNullOrEmpty(includeProperties))
+        if (filter != null)
         {
-            foreach (var includeProp in includeProperties
-                         .Split(new []{','},StringSplitOptions.RemoveEmptyEntries))
-            {
-                query = query.Include(includeProp);
-            }
+            query = query.Where(filter);
         }
-        return query.ToList();
-    }
-
-    public T? Get(Expression<Func<T, bool>> filter, string? includeProperties = null)
-    {
-        IQueryable<T> query = dbSet;
-        query = query.Where(filter);
-        if (! string.IsNullOrEmpty(includeProperties))
+        if (!string.IsNullOrEmpty(includeProperties))
         {
             foreach (var includeProp in includeProperties
                          .Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries))
             {
                 query = query.Include(includeProp);
             }
-
         }
-        
+
+        return query.ToList();
+    }
+
+    public T? Get(Expression<Func<T, bool>> filter, string? includeProperties = null, bool tracked = false)
+    {
+        IQueryable<T> query;
+        if (tracked)
+        {
+            query = dbSet;
+        }
+        else
+        {
+            query = dbSet.AsNoTracking();
+        }
+
+        query = query.Where(filter);
+        if (!string.IsNullOrEmpty(includeProperties))
+        {
+            foreach (var includeProp in includeProperties
+                         .Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries))
+            {
+                query = query.Include(includeProp);
+            }
+        }
+
         return query.FirstOrDefault();
     }
 

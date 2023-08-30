@@ -9,7 +9,7 @@ public class ShoppingCart
     
     public int Id { get; set; }
     
-    public int ProductId { get; set; }
+    public int? ProductId { get; set; }
     [ValidateNever]
     [ForeignKey("ProductId")]
     public Product Product { get; set; }
@@ -20,4 +20,7 @@ public class ShoppingCart
     [ValidateNever]
     [ForeignKey("ApplicationUserId")]
     public ApplicationUser ApplicationUser { get; set; }
+    
+    [NotMapped]
+    public double Price { get; set; }
 }

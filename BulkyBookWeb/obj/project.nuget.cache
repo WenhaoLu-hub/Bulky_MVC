@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "2jHqYnncx8qiCcGX6MT2Uukr6GlzvoyL/a6xQihoLo7p/DkGjYC2xpkgcLfQQz8mqv0DhKGw0rVeDiNSNCeryg==",
+  "dgSpecHash": "ZHkx9N8rNKIycTlU7V6sGWzyngiQ42R+5gvyo5JUqQXtKe4eQMb3nMR0mUeMhTOsA2fmMqPp8s6nQ8qBmKQ4DQ==",
   "success": true,
   "projectFilePath": "/Users/darwin/RiderProjects/Bulky/BulkyBookWeb/BulkyBookWeb.csproj",
   "expectedPackageFiles": [
@@ -137,6 +137,7 @@
     "/Users/darwin/.nuget/packages/runtime.ubuntu.14.04-x64.runtime.native.system.security.cryptography.openssl/4.3.0/runtime.ubuntu.14.04-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",
     "/Users/darwin/.nuget/packages/runtime.ubuntu.16.04-x64.runtime.native.system.security.cryptography.openssl/4.3.0/runtime.ubuntu.16.04-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",
     "/Users/darwin/.nuget/packages/runtime.ubuntu.16.10-x64.runtime.native.system.security.cryptography.openssl/4.3.0/runtime.ubuntu.16.10-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",
+    "/Users/darwin/.nuget/packages/stripe.net/42.2.0/stripe.net.42.2.0.nupkg.sha512",
     "/Users/darwin/.nuget/packages/system.appcontext/4.3.0/system.appcontext.4.3.0.nupkg.sha512",
     "/Users/darwin/.nuget/packages/system.buffers/4.3.0/system.buffers.4.3.0.nupkg.sha512",
     "/Users/darwin/.nuget/packages/system.codedom/4.4.0/system.codedom.4.4.0.nupkg.sha512",
