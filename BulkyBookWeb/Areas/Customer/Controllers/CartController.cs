@@ -187,7 +187,7 @@ public class CartController : Controller
             if (session.PaymentStatus.ToLower() == "paid")
             {
                 _unitOfWork.OrderHeader.UpdateStripePaymentId(id,session.Id, session.PaymentIntentId);
-                _unitOfWork.OrderHeader.UpdateStatus(id,session.Id,SD.PaymentStatusApproved);
+                _unitOfWork.OrderHeader.UpdateStatus(id,SD.StatusApproved,SD.PaymentStatusApproved);
                 _unitOfWork.Save();
             }
         }
