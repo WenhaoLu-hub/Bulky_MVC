@@ -4,11 +4,12 @@ using BulkyBook.Models.Models;
 
 namespace BulkyBook.DataAccess.Repository;
 
-public class ApplicationUserRepository : Repository<ApplicationUser>,IApplicationUserRepository
+public class ApplicationUserRepository : Repository<ApplicationUser>, IApplicationUserRepository
 {
     private readonly ApplicationDbContext _context;
 
-    public ApplicationUserRepository(ApplicationDbContext context) : base(context)
+    public ApplicationUserRepository(ApplicationDbContext context)
+        : base(context)
     {
         _context = context;
     }
@@ -17,5 +18,4 @@ public class ApplicationUserRepository : Repository<ApplicationUser>,IApplicatio
     {
         _context.Update(applicationUser);
     }
-    
 }

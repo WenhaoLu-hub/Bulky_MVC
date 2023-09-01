@@ -17,7 +17,8 @@ namespace BulkyBook.DataAccess.Migrations
                 nullable: true,
                 oldClrType: typeof(int),
                 oldType: "integer",
-                oldNullable: true);
+                oldNullable: true
+            );
         }
 
         /// <inheritdoc />
@@ -30,7 +31,8 @@ namespace BulkyBook.DataAccess.Migrations
                 nullable: true,
                 oldClrType: typeof(string),
                 oldType: "text",
-                oldNullable: true);
+                oldNullable: true
+            );
         }
     }
 }

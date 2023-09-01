@@ -7,7 +7,6 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
-
 namespace BulkyBookWeb.Areas.Admin.Controllers;
 
 [Area("Admin")]
@@ -29,7 +28,6 @@ public class CompanyController : Controller
 
     public IActionResult Upsert(int? id)
     {
-       
         if (id == null || id == 0)
         {
             //create
@@ -48,7 +46,7 @@ public class CompanyController : Controller
     {
         if (ModelState.IsValid)
         {
-            if (company.CompanyId ==0)
+            if (company.CompanyId == 0)
             {
                 _unitOfWork.Company.Add(company);
             }
@@ -60,11 +58,10 @@ public class CompanyController : Controller
             TempData["success"] = "Company created successfully.";
             return RedirectToAction(nameof(Index));
         }
-        
+
         return View(company);
     }
 
-    
     #region API CALLS
     [HttpGet]
     public IActionResult GetAll()
@@ -85,7 +82,6 @@ public class CompanyController : Controller
         _unitOfWork.Save();
         return Json(new { success = true, message = "Delete Company Successfully" });
     }
-    
+
     #endregion
-    
 }

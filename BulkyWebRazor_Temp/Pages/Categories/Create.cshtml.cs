@@ -19,9 +19,9 @@ namespace BulkyWebRazor_Temp.Pages.Categories
         {
             _db = db;
         }
-        public void OnGet()
-        {
-        }
+
+        public void OnGet() { }
+
         public IActionResult OnPost(Category category)
         {
             _db.Categories.Add(category);

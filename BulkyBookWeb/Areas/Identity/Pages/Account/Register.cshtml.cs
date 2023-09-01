@@ -36,8 +36,10 @@ namespace BulkyBookWeb.Areas.Identity.Pages.Account
             IUserStore<IdentityUser> userStore,
             SignInManager<IdentityUser> signInManager,
             ILogger<RegisterModel> logger,
-            IEmailSender emailSender, 
-            RoleManager<IdentityRole> roleManager, IUnitOfWork unitOfWork)
+            IEmailSender emailSender,
+            RoleManager<IdentityRole> roleManager,
+            IUnitOfWork unitOfWork
+        )
         {
             _userManager = userManager;
             _userStore = userStore;
@@ -88,7 +90,11 @@ namespace BulkyBookWeb.Areas.Identity.Pages.Account
             ///     directly from your code. This API may change or be removed in future releases.
             /// </summary>
             [Required]
-            [StringLength(100, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 6)]
+            [StringLength(
+                100,
+                ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.",
+                MinimumLength = 6
+            )]
             [DataType(DataType.Password)]
             [Display(Name = "Password")]
             public string Password { get; set; }
@@ -99,12 +105,17 @@ namespace BulkyBookWeb.Areas.Identity.Pages.Account
             /// </summary>
             [DataType(DataType.Password)]
             [Display(Name = "Confirm password")]
-            [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
+            [Compare(
+                "Password",
+                ErrorMessage = "The password and confirmation password do not match."
+            )]
             public string ConfirmPassword { get; set; }
-            
+
             public string? Role { get; set; }
+
             [ValidateNever]
             public IEnumerable<SelectListItem> RoleList { get; set; }
+
             [Required]
             public string? Name { get; set; }
             public string? StreetAddress { get; set; }
@@ -113,43 +124,53 @@ namespace BulkyBookWeb.Areas.Identity.Pages.Account
             public string? PostalCode { get; set; }
             public string? PhoneNumber { get; set; }
             public int? CompanyId { get; set; }
+
             [ValidateNever]
             public IEnumerable<SelectListItem> CompanyList { get; set; }
         }
-
 
         public async Task OnGetAsync(string returnUrl = null)
         {
             if (!_roleManager.RoleExistsAsync(SD.Role_Customer).GetAwaiter().GetResult())
             {
-                _roleManager.CreateAsync(new IdentityRole(SD.Role_Customer)).GetAwaiter().GetResult();
+                _roleManager
+                    .CreateAsync(new IdentityRole(SD.Role_Customer))
+                    .GetAwaiter()
+                    .GetResult();
                 _roleManager.CreateAsync(new IdentityRole(SD.Role_Admin)).GetAwaiter().GetResult();
-                _roleManager.CreateAsync(new IdentityRole(SD.Role_Company)).GetAwaiter().GetResult();
-                _roleManager.CreateAsync(new IdentityRole(SD.Role_Employee)).GetAwaiter().GetResult();
+                _roleManager
+                    .CreateAsync(new IdentityRole(SD.Role_Company))
+                    .GetAwaiter()
+                    .GetResult();
+                _roleManager
+                    .CreateAsync(new IdentityRole(SD.Role_Employee))
+                    .GetAwaiter()
+                    .GetResult();
             }
 
             Input = new InputModel()
             {
-                RoleList = _roleManager.Roles.Select(x => x.Name).Select(i => new SelectListItem
-                {
-                    Text = i,
-                    Value = i
-                }),
-                CompanyList = _unitOfWork.Company.GetAll().Select(x=> new SelectListItem
-                {
-                    Text = x.Name,
-                    Value = x.CompanyId.ToString()
-                }) 
-                
+                RoleList = _roleManager.Roles
+                    .Select(x => x.Name)
+                    .Select(i => new SelectListItem { Text = i, Value = i }),
+                CompanyList = _unitOfWork.Company
+                    .GetAll()
+                    .Select(
+                        x => new SelectListItem { Text = x.Name, Value = x.CompanyId.ToString() }
+                    )
             };
             ReturnUrl = returnUrl;
-            ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
+            ExternalLogins = (
+                await _signInManager.GetExternalAuthenticationSchemesAsync()
+            ).ToList();
         }
 
         public async Task<IActionResult> OnPostAsync(string returnUrl = null)
         {
             returnUrl ??= Url.Content("~/");
-            ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
+            ExternalLogins = (
+                await _signInManager.GetExternalAuthenticationSchemesAsync()
+            ).ToList();
             if (ModelState.IsValid)
             {
                 var user = CreateUser();
@@ -186,15 +207,28 @@ namespace BulkyBookWeb.Areas.Identity.Pages.Account
                     var callbackUrl = Url.Page(
                         "/Account/ConfirmEmail",
                         pageHandler: null,
-                        values: new { area = "Identity", userId = userId, code = code, returnUrl = returnUrl },
-                        protocol: Request.Scheme);
+                        values: new
+                        {
+                            area = "Identity",
+                            userId = userId,
+                            code = code,
+                            returnUrl = returnUrl
+                        },
+                        protocol: Request.Scheme
+                    );
 
-                    await _emailSender.SendEmailAsync(Input.Email, "Confirm your email",
-                        $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
+                    await _emailSender.SendEmailAsync(
+                        Input.Email,
+                        "Confirm your email",
+                        $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>."
+                    );
 
                     if (_userManager.Options.SignIn.RequireConfirmedAccount)
                     {
-                        return RedirectToPage("RegisterConfirmation", new { email = Input.Email, returnUrl = returnUrl });
+                        return RedirectToPage(
+                            "RegisterConfirmation",
+                            new { email = Input.Email, returnUrl = returnUrl }
+                        );
                     }
                     else
                     {
@@ -220,9 +254,11 @@ namespace BulkyBookWeb.Areas.Identity.Pages.Account
             }
             catch
             {
-                throw new InvalidOperationException($"Can't create an instance of '{nameof(IdentityUser)}'. " +
-                    $"Ensure that '{nameof(IdentityUser)}' is not an abstract class and has a parameterless constructor, or alternatively " +
-                    $"override the register page in /Areas/Identity/Pages/Account/Register.cshtml");
+                throw new InvalidOperationException(
+                    $"Can't create an instance of '{nameof(IdentityUser)}'. "
+                        + $"Ensure that '{nameof(IdentityUser)}' is not an abstract class and has a parameterless constructor, or alternatively "
+                        + $"override the register page in /Areas/Identity/Pages/Account/Register.cshtml"
+                );
             }
         }
 
@@ -230,7 +266,9 @@ namespace BulkyBookWeb.Areas.Identity.Pages.Account
         {
             if (!_userManager.SupportsUserEmail)
             {
-                throw new NotSupportedException("The default UI requires a user store with email support.");
+                throw new NotSupportedException(
+                    "The default UI requires a user store with email support."
+                );
             }
             return (IUserEmailStore<IdentityUser>)_userStore;
         }

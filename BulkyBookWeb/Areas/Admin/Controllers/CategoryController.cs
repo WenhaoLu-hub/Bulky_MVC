@@ -5,12 +5,14 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BulkyBookWeb.Areas.Admin.Controllers;
+
 [Area("Admin")]
 [Authorize(Roles = SD.Role_Admin)]
 public class CategoryController : Controller
 {
     private readonly IUnitOfWork _unitOfWork;
-    public CategoryController( IUnitOfWork unitOfWork)
+
+    public CategoryController(IUnitOfWork unitOfWork)
     {
         _unitOfWork = unitOfWork;
     }
@@ -48,7 +50,7 @@ public class CategoryController : Controller
             return NotFound();
         }
 
-        var category = _unitOfWork.Category.Get(x=>x.CategoryId == id);
+        var category = _unitOfWork.Category.Get(x => x.CategoryId == id);
         if (category is null)
         {
             return NotFound();
@@ -71,7 +73,6 @@ public class CategoryController : Controller
         return View();
     }
 
-
     public IActionResult Delete(int? id)
     {
         if (id == null || id == 0)
@@ -79,7 +80,7 @@ public class CategoryController : Controller
             return NotFound();
         }
 
-        var category = _unitOfWork.Category.Get(x=>x.CategoryId==id);
+        var category = _unitOfWork.Category.Get(x => x.CategoryId == id);
         if (category is null)
         {
             return NotFound();
@@ -88,10 +89,10 @@ public class CategoryController : Controller
         return View(category);
     }
 
-    [HttpPost,ActionName("Delete")]
+    [HttpPost, ActionName("Delete")]
     public IActionResult DeletePost(int? id)
     {
-        var category = _unitOfWork.Category.Get(x=>x.CategoryId==id);
+        var category = _unitOfWork.Category.Get(x => x.CategoryId == id);
         if (category is null)
         {
             return NotFound();

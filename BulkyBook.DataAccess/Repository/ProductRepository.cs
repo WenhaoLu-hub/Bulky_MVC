@@ -7,7 +7,9 @@ namespace BulkyBook.DataAccess.Repository;
 public class ProductRepository : Repository<Product>, IProductRepository
 {
     private readonly ApplicationDbContext _context;
-    public ProductRepository(ApplicationDbContext context) : base(context)
+
+    public ProductRepository(ApplicationDbContext context)
+        : base(context)
     {
         _context = context;
     }
@@ -16,7 +18,7 @@ public class ProductRepository : Repository<Product>, IProductRepository
     {
         _context.Update(product);
         var objFromDb = _context.Products.FirstOrDefault(x => x.ProductId == product.ProductId);
-        if (objFromDb != null) 
+        if (objFromDb != null)
         {
             objFromDb.Title = product.Title;
             objFromDb.Description = product.Description;
@@ -28,7 +30,7 @@ public class ProductRepository : Repository<Product>, IProductRepository
             objFromDb.CategoryId = product.CategoryId;
             if (product.ImageUrl != null)
             {
-                objFromDb.ImageUrl = product.ImageUrl; 
+                objFromDb.ImageUrl = product.ImageUrl;
             }
         }
     }

@@ -4,10 +4,12 @@ using BulkyBook.Models.Models;
 
 namespace BulkyBook.DataAccess.Repository;
 
-public class CompanyRepository :Repository<Company>, ICompanyRepository
+public class CompanyRepository : Repository<Company>, ICompanyRepository
 {
     private readonly ApplicationDbContext _context;
-    public CompanyRepository(ApplicationDbContext context) : base(context)
+
+    public CompanyRepository(ApplicationDbContext context)
+        : base(context)
     {
         _context = context;
     }

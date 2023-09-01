@@ -21,7 +21,8 @@ namespace BulkyBookWeb.Areas.Identity.Pages.Account.Manage
         public DeletePersonalDataModel(
             UserManager<IdentityUser> userManager,
             SignInManager<IdentityUser> signInManager,
-            ILogger<DeletePersonalDataModel> logger)
+            ILogger<DeletePersonalDataModel> logger
+        )
         {
             _userManager = userManager;
             _signInManager = signInManager;

@@ -14,12 +14,14 @@ namespace BulkyBook.DataAccess.Migrations
                 name: "CompanyId",
                 table: "AspNetUsers",
                 type: "integer",
-                nullable: true);
+                nullable: true
+            );
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetUsers_CompanyId",
                 table: "AspNetUsers",
-                column: "CompanyId");
+                column: "CompanyId"
+            );
 
             migrationBuilder.AddForeignKey(
                 name: "FK_AspNetUsers_Companies_CompanyId",
@@ -27,7 +29,8 @@ namespace BulkyBook.DataAccess.Migrations
                 column: "CompanyId",
                 principalTable: "Companies",
                 principalColumn: "CompanyId",
-                onDelete: ReferentialAction.Cascade);
+                onDelete: ReferentialAction.Cascade
+            );
         }
 
         /// <inheritdoc />
@@ -35,15 +38,12 @@ namespace BulkyBook.DataAccess.Migrations
         {
             migrationBuilder.DropForeignKey(
                 name: "FK_AspNetUsers_Companies_CompanyId",
-                table: "AspNetUsers");
+                table: "AspNetUsers"
+            );
 
-            migrationBuilder.DropIndex(
-                name: "IX_AspNetUsers_CompanyId",
-                table: "AspNetUsers");
+            migrationBuilder.DropIndex(name: "IX_AspNetUsers_CompanyId", table: "AspNetUsers");
 
-            migrationBuilder.DropColumn(
-                name: "CompanyId",
-                table: "AspNetUsers");
+            migrationBuilder.DropColumn(name: "CompanyId", table: "AspNetUsers");
         }
     }
 }

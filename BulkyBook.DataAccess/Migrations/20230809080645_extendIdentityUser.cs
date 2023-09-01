@@ -14,66 +14,60 @@ namespace BulkyBook.DataAccess.Migrations
                 name: "City",
                 table: "AspNetUsers",
                 type: "text",
-                nullable: true);
+                nullable: true
+            );
 
             migrationBuilder.AddColumn<string>(
                 name: "Discriminator",
                 table: "AspNetUsers",
                 type: "text",
                 nullable: false,
-                defaultValue: "");
+                defaultValue: ""
+            );
 
             migrationBuilder.AddColumn<int>(
                 name: "Name",
                 table: "AspNetUsers",
                 type: "integer",
-                nullable: true);
+                nullable: true
+            );
 
             migrationBuilder.AddColumn<string>(
                 name: "PostalCode",
                 table: "AspNetUsers",
                 type: "text",
-                nullable: true);
+                nullable: true
+            );
 
             migrationBuilder.AddColumn<string>(
                 name: "State",
                 table: "AspNetUsers",
                 type: "text",
-                nullable: true);
+                nullable: true
+            );
 
             migrationBuilder.AddColumn<string>(
                 name: "StreetAddress",
                 table: "AspNetUsers",
                 type: "text",
-                nullable: true);
+                nullable: true
+            );
         }
 
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropColumn(
-                name: "City",
-                table: "AspNetUsers");
+            migrationBuilder.DropColumn(name: "City", table: "AspNetUsers");
 
-            migrationBuilder.DropColumn(
-                name: "Discriminator",
-                table: "AspNetUsers");
+            migrationBuilder.DropColumn(name: "Discriminator", table: "AspNetUsers");
 
-            migrationBuilder.DropColumn(
-                name: "Name",
-                table: "AspNetUsers");
+            migrationBuilder.DropColumn(name: "Name", table: "AspNetUsers");
 
-            migrationBuilder.DropColumn(
-                name: "PostalCode",
-                table: "AspNetUsers");
+            migrationBuilder.DropColumn(name: "PostalCode", table: "AspNetUsers");
 
-            migrationBuilder.DropColumn(
-                name: "State",
-                table: "AspNetUsers");
+            migrationBuilder.DropColumn(name: "State", table: "AspNetUsers");
 
-            migrationBuilder.DropColumn(
-                name: "StreetAddress",
-                table: "AspNetUsers");
+            migrationBuilder.DropColumn(name: "StreetAddress", table: "AspNetUsers");
         }
     }
 }

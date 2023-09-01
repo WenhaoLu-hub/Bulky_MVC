@@ -15,6 +15,7 @@ namespace BulkyBookWeb.Areas.Admin.Controllers;
 public class OrderController : Controller
 {
     private readonly IUnitOfWork _unitOfWork;
+
     [BindProperty]
     public OrderVM OrderVm { get; set; }
 
@@ -32,14 +33,20 @@ public class OrderController : Controller
     {
         OrderVm = new OrderVM
         {
-            OrderHeader = _unitOfWork.OrderHeader.Get(x=>x.Id==orderId, includeProperties:"ApplicationUser"),
-            OrderDetail = _unitOfWork.OrderDetail.GetAll(x=>x.OrderHeaderId == orderId, includeProperties:"Product")
-            
+            OrderHeader = _unitOfWork.OrderHeader.Get(
+                x => x.Id == orderId,
+                includeProperties: "ApplicationUser"
+            ),
+            OrderDetail = _unitOfWork.OrderDetail.GetAll(
+                x => x.OrderHeaderId == orderId,
+                includeProperties: "Product"
+            )
         };
         return View(OrderVm);
     }
+
     [HttpPost]
-    [Authorize(Roles = SD.Role_Admin+","+SD.Role_Employee)]
+    [Authorize(Roles = SD.Role_Admin + "," + SD.Role_Employee)]
     public IActionResult UpdateOrderDetail()
     {
         var orderHeader = _unitOfWork.OrderHeader.Get(x => x.Id == OrderVm.OrderHeader.Id);
@@ -60,18 +67,19 @@ public class OrderController : Controller
         _unitOfWork.OrderHeader.Update(orderHeader);
         _unitOfWork.Save();
         TempData["Success"] = "Order Details Updated Successfully";
-        return RedirectToAction(nameof(Details),new {orderId = orderHeader.Id});
+        return RedirectToAction(nameof(Details), new { orderId = orderHeader.Id });
     }
+
     [HttpPost]
     [Authorize(Roles = SD.Role_Admin + "," + SD.Role_Employee)]
     public IActionResult StartProcessing()
     {
-        _unitOfWork.OrderHeader.UpdateStatus(OrderVm.OrderHeader.Id,SD.StatusInProcess);
+        _unitOfWork.OrderHeader.UpdateStatus(OrderVm.OrderHeader.Id, SD.StatusInProcess);
         _unitOfWork.Save();
         TempData["Success"] = "Order Status Update Successfully";
-        return RedirectToAction(nameof(Details), new{ orderId = OrderVm.OrderHeader.Id});
+        return RedirectToAction(nameof(Details), new { orderId = OrderVm.OrderHeader.Id });
     }
-    
+
     [HttpPost]
     [Authorize(Roles = SD.Role_Admin + "," + SD.Role_Employee)]
     public IActionResult ShipOrder()
@@ -88,8 +96,9 @@ public class OrderController : Controller
         _unitOfWork.OrderHeader.Update(orderHeader);
         _unitOfWork.Save();
         TempData["Success"] = "Order Status Update Successfully";
-        return RedirectToAction(nameof(Details), new{ orderId = OrderVm.OrderHeader.Id});
+        return RedirectToAction(nameof(Details), new { orderId = OrderVm.OrderHeader.Id });
     }
+
     [HttpPost]
     [Authorize(Roles = SD.Role_Admin + "," + SD.Role_Employee)]
     public IActionResult CancelOrder()
@@ -105,34 +114,46 @@ public class OrderController : Controller
             };
             var refundService = new RefundService();
             var refund = refundService.Create(options);
-            
-            _unitOfWork.OrderHeader.UpdateStatus(orderHeader.Id,SD.StatusCancelled, SD.StatusRefunded);
+
+            _unitOfWork.OrderHeader.UpdateStatus(
+                orderHeader.Id,
+                SD.StatusCancelled,
+                SD.StatusRefunded
+            );
         }
         else
         {
-            _unitOfWork.OrderHeader.UpdateStatus(orderHeader.Id,SD.StatusCancelled, SD.StatusRefunded);
+            _unitOfWork.OrderHeader.UpdateStatus(
+                orderHeader.Id,
+                SD.StatusCancelled,
+                SD.StatusRefunded
+            );
         }
         _unitOfWork.Save();
         TempData["Success"] = "Order Status Update Successfully";
-        return RedirectToAction(nameof(Details), new{ orderId = OrderVm.OrderHeader.Id});
+        return RedirectToAction(nameof(Details), new { orderId = OrderVm.OrderHeader.Id });
     }
-
 
     [HttpPost]
     [ActionName("Details")]
     [Authorize(Roles = SD.Role_Admin + "," + SD.Role_Employee)]
-    public IActionResult Details_PAY_NOW ()
+    public IActionResult Details_PAY_NOW()
     {
-        OrderVm.OrderHeader =
-            _unitOfWork.OrderHeader.Get(x => x.Id == OrderVm.OrderHeader.Id, includeProperties: "ApplicationUser");
-        OrderVm.OrderDetail = _unitOfWork.OrderDetail.GetAll(x => x.OrderHeaderId == OrderVm.OrderHeader.Id,
-            includeProperties: "Product");
-        
+        OrderVm.OrderHeader = _unitOfWork.OrderHeader.Get(
+            x => x.Id == OrderVm.OrderHeader.Id,
+            includeProperties: "ApplicationUser"
+        );
+        OrderVm.OrderDetail = _unitOfWork.OrderDetail.GetAll(
+            x => x.OrderHeaderId == OrderVm.OrderHeader.Id,
+            includeProperties: "Product"
+        );
+
         //stripe logic
         var domain = "http://localhost:5088/";
         var createOptions = new SessionCreateOptions
         {
-            SuccessUrl = domain + $"Admin/Order/PaymentConfirmation?orderHeaderId={OrderVm.OrderHeader.Id}",
+            SuccessUrl =
+                domain + $"Admin/Order/PaymentConfirmation?orderHeaderId={OrderVm.OrderHeader.Id}",
             CancelUrl = domain + $"Admin/Order/Details?orderId={OrderVm.OrderHeader.Id}",
             LineItems = new List<SessionLineItemOptions>(),
             Mode = "payment"
@@ -149,7 +170,6 @@ public class OrderController : Controller
                     {
                         Name = item.Product.Title
                     },
-                    
                 },
                 Quantity = item.Count
             };
@@ -158,16 +178,19 @@ public class OrderController : Controller
 
         var sessionService = new SessionService();
         var session = sessionService.Create(createOptions);
-        _unitOfWork.OrderHeader.UpdateStripePaymentId(OrderVm.OrderHeader.Id,session.Id, session.PaymentIntentId);
+        _unitOfWork.OrderHeader.UpdateStripePaymentId(
+            OrderVm.OrderHeader.Id,
+            session.Id,
+            session.PaymentIntentId
+        );
         _unitOfWork.Save();
         Response.Headers.Add("Location", session.Url);
         return new StatusCodeResult(303);
     }
-    
-    
+
     public IActionResult PaymentConfirmation(int orderHeaderId)
     {
-        var orderHeader = _unitOfWork.OrderHeader.Get(x=>x.Id==orderHeaderId);
+        var orderHeader = _unitOfWork.OrderHeader.Get(x => x.Id == orderHeaderId);
         if (orderHeader.PaymentStatus == SD.PaymentStatusDelayedPayment)
         {
             // customer
@@ -175,12 +198,20 @@ public class OrderController : Controller
             var session = service.Get(orderHeader.SessionId);
             if (session.PaymentStatus.ToLower() == "paid")
             {
-                _unitOfWork.OrderHeader.UpdateStripePaymentId(orderHeaderId,session.Id, session.PaymentIntentId);
-                _unitOfWork.OrderHeader.UpdateStatus(orderHeaderId,orderHeader.OrderStatus,SD.PaymentStatusApproved);
+                _unitOfWork.OrderHeader.UpdateStripePaymentId(
+                    orderHeaderId,
+                    session.Id,
+                    session.PaymentIntentId
+                );
+                _unitOfWork.OrderHeader.UpdateStatus(
+                    orderHeaderId,
+                    orderHeader.OrderStatus,
+                    SD.PaymentStatusApproved
+                );
                 _unitOfWork.Save();
             }
         }
-        
+
         return View(orderHeaderId);
     }
 
@@ -192,22 +223,28 @@ public class OrderController : Controller
         IEnumerable<OrderHeader> orderHeaders;
         if (User.IsInRole(SD.Role_Admin) || User.IsInRole(SD.Role_Employee))
         {
-            orderHeaders = _unitOfWork.OrderHeader.GetAll(includeProperties:"ApplicationUser").ToList();
+            orderHeaders = _unitOfWork.OrderHeader
+                .GetAll(includeProperties: "ApplicationUser")
+                .ToList();
         }
         else
         {
             var userIdentity = (ClaimsIdentity)User.Identity;
             var userId = userIdentity.FindFirst(ClaimTypes.NameIdentifier).Value;
 
-            orderHeaders = _unitOfWork.OrderHeader.GetAll(x => x.ApplicationUserId == userId, includeProperties: "ApplicationUser").ToList();
+            orderHeaders = _unitOfWork.OrderHeader
+                .GetAll(x => x.ApplicationUserId == userId, includeProperties: "ApplicationUser")
+                .ToList();
         }
         switch (status)
         {
             case "pending":
-                orderHeaders = orderHeaders.Where(x => x.OrderStatus == SD.StatusPending  ).ToList();
+                orderHeaders = orderHeaders.Where(x => x.OrderStatus == SD.StatusPending).ToList();
                 break;
             case "inprocess":
-                orderHeaders = orderHeaders.Where(x => x.OrderStatus == SD.StatusInProcess).ToList();
+                orderHeaders = orderHeaders
+                    .Where(x => x.OrderStatus == SD.StatusInProcess)
+                    .ToList();
                 break;
             case "completed":
                 orderHeaders = orderHeaders.Where(x => x.OrderStatus == SD.StatusShipped).ToList();
@@ -220,10 +257,6 @@ public class OrderController : Controller
         }
         return Json(new { data = orderHeaders });
     }
-    
 
     #endregion
-
-
-   
 }

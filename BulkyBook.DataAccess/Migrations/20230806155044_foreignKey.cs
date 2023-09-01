@@ -15,54 +15,62 @@ namespace BulkyBook.DataAccess.Migrations
                 table: "Products",
                 type: "integer",
                 nullable: false,
-                defaultValue: 0);
+                defaultValue: 0
+            );
 
             migrationBuilder.UpdateData(
                 table: "Categories",
                 keyColumn: "CategoryId",
                 keyValue: 1,
                 column: "Name",
-                value: "Action");
+                value: "Action"
+            );
 
             migrationBuilder.UpdateData(
                 table: "Categories",
                 keyColumn: "CategoryId",
                 keyValue: 2,
                 column: "Name",
-                value: "Novel");
+                value: "Novel"
+            );
 
             migrationBuilder.UpdateData(
                 table: "Categories",
                 keyColumn: "CategoryId",
                 keyValue: 3,
                 column: "Name",
-                value: "Science Fiction");
+                value: "Science Fiction"
+            );
 
             migrationBuilder.UpdateData(
                 table: "Products",
                 keyColumn: "ProductId",
                 keyValue: 1,
                 column: "CategoryId",
-                value: 1);
+                value: 1
+            );
 
             migrationBuilder.UpdateData(
                 table: "Products",
                 keyColumn: "ProductId",
                 keyValue: 2,
                 column: "CategoryId",
-                value: 1);
+                value: 1
+            );
 
             migrationBuilder.UpdateData(
                 table: "Products",
                 keyColumn: "ProductId",
                 keyValue: 3,
                 column: "CategoryId",
-                value: 1);
+                value: 1
+            );
 
             migrationBuilder.CreateIndex(
                 name: "IX_Products_CategoryId",
                 table: "Products",
-                column: "CategoryId");
+                column: "CategoryId"
+            );
 
             migrationBuilder.AddForeignKey(
                 name: "FK_Products_Categories_CategoryId",
@@ -70,7 +78,8 @@ namespace BulkyBook.DataAccess.Migrations
                 column: "CategoryId",
                 principalTable: "Categories",
                 principalColumn: "CategoryId",
-                onDelete: ReferentialAction.Cascade);
+                onDelete: ReferentialAction.Cascade
+            );
         }
 
         /// <inheritdoc />
@@ -78,36 +87,36 @@ namespace BulkyBook.DataAccess.Migrations
         {
             migrationBuilder.DropForeignKey(
                 name: "FK_Products_Categories_CategoryId",
-                table: "Products");
+                table: "Products"
+            );
 
-            migrationBuilder.DropIndex(
-                name: "IX_Products_CategoryId",
-                table: "Products");
+            migrationBuilder.DropIndex(name: "IX_Products_CategoryId", table: "Products");
 
-            migrationBuilder.DropColumn(
-                name: "CategoryId",
-                table: "Products");
+            migrationBuilder.DropColumn(name: "CategoryId", table: "Products");
 
             migrationBuilder.UpdateData(
                 table: "Categories",
                 keyColumn: "CategoryId",
                 keyValue: 1,
                 column: "Name",
-                value: "Web Development");
+                value: "Web Development"
+            );
 
             migrationBuilder.UpdateData(
                 table: "Categories",
                 keyColumn: "CategoryId",
                 keyValue: 2,
                 column: "Name",
-                value: "Application Development");
+                value: "Application Development"
+            );
 
             migrationBuilder.UpdateData(
                 table: "Categories",
                 keyColumn: "CategoryId",
                 keyValue: 3,
                 column: "Name",
-                value: "Graphic Design");
+                value: "Graphic Design"
+            );
         }
     }
 }

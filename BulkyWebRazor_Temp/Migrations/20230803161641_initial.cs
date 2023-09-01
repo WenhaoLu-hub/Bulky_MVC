@@ -15,17 +15,27 @@ namespace BulkyWebRazor_Temp.Migrations
         {
             migrationBuilder.CreateTable(
                 name: "Categories",
-                columns: table => new
-                {
-                    CategoryId = table.Column<int>(type: "integer", nullable: false)
-                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    Name = table.Column<string>(type: "character varying(30)", maxLength: 30, nullable: false),
-                    DisplayOrder = table.Column<int>(type: "integer", nullable: false)
-                },
+                columns: table =>
+                    new
+                    {
+                        CategoryId = table
+                            .Column<int>(type: "integer", nullable: false)
+                            .Annotation(
+                                "Npgsql:ValueGenerationStrategy",
+                                NpgsqlValueGenerationStrategy.IdentityByDefaultColumn
+                            ),
+                        Name = table.Column<string>(
+                            type: "character varying(30)",
+                            maxLength: 30,
+                            nullable: false
+                        ),
+                        DisplayOrder = table.Column<int>(type: "integer", nullable: false)
+                    },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Categories", x => x.CategoryId);
-                });
+                }
+            );
 
             migrationBuilder.InsertData(
                 table: "Categories",
@@ -35,14 +45,14 @@ namespace BulkyWebRazor_Temp.Migrations
                     { 1, 1, "Action" },
                     { 2, 2, "Controller" },
                     { 3, 3, "History" }
-                });
+                }
+            );
         }
 
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropTable(
-                name: "Categories");
+            migrationBuilder.DropTable(name: "Categories");
         }
     }
 }

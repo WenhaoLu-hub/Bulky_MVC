@@ -20,26 +20,18 @@ namespace BulkyBook.DataAccess.Migrations
                     { 1, 1, "Web Development" },
                     { 2, 2, "Application Development" },
                     { 3, 3, "Graphic Design" }
-                });
+                }
+            );
         }
 
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DeleteData(
-                table: "Categories",
-                keyColumn: "CategoryId",
-                keyValue: 1);
+            migrationBuilder.DeleteData(table: "Categories", keyColumn: "CategoryId", keyValue: 1);
 
-            migrationBuilder.DeleteData(
-                table: "Categories",
-                keyColumn: "CategoryId",
-                keyValue: 2);
+            migrationBuilder.DeleteData(table: "Categories", keyColumn: "CategoryId", keyValue: 2);
 
-            migrationBuilder.DeleteData(
-                table: "Categories",
-                keyColumn: "CategoryId",
-                keyValue: 3);
+            migrationBuilder.DeleteData(table: "Categories", keyColumn: "CategoryId", keyValue: 3);
         }
     }
 }

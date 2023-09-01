@@ -13,24 +13,29 @@ namespace BulkyBook.DataAccess.Migrations
         {
             migrationBuilder.CreateTable(
                 name: "Categories",
-                columns: table => new
-                {
-                    CategoryId = table.Column<int>(type: "integer", nullable: false)
-                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    Name = table.Column<string>(type: "text", nullable: false),
-                    DisplayOrder = table.Column<int>(type: "integer", nullable: false)
-                },
+                columns: table =>
+                    new
+                    {
+                        CategoryId = table
+                            .Column<int>(type: "integer", nullable: false)
+                            .Annotation(
+                                "Npgsql:ValueGenerationStrategy",
+                                NpgsqlValueGenerationStrategy.IdentityByDefaultColumn
+                            ),
+                        Name = table.Column<string>(type: "text", nullable: false),
+                        DisplayOrder = table.Column<int>(type: "integer", nullable: false)
+                    },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Categories", x => x.CategoryId);
-                });
+                }
+            );
         }
 
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropTable(
-                name: "Categories");
+            migrationBuilder.DropTable(name: "Categories");
         }
     }
 }

@@ -10,22 +10,22 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 namespace BulkyWebRazor_Temp.Pages.Categories
 {
     [BindProperties]
-	public class DeleteModel : PageModel
+    public class DeleteModel : PageModel
     {
         private readonly ApplicationDbContext _db;
         public Category Category { get; set; }
+
         public DeleteModel(ApplicationDbContext db)
         {
             _db = db;
         }
 
-        public void OnGet(int? id )
+        public void OnGet(int? id)
         {
-            if(id != null && id != 0)
+            if (id != null && id != 0)
             {
                 Category = _db.Categories.Find(id);
             }
-
         }
 
         public IActionResult OnPost()
@@ -34,7 +34,6 @@ namespace BulkyWebRazor_Temp.Pages.Categories
             _db.SaveChanges();
             TempData["success"] = "Category deleted successfully";
             return RedirectToPage("index");
-            
         }
     }
 }

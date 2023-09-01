@@ -5,7 +5,8 @@ using Microsoft.EntityFrameworkCore;
 
 namespace BulkyBook.DataAccess.Repository;
 
-public class Repository<T> : IRepository<T> where T : class
+public class Repository<T> : IRepository<T>
+    where T : class
 {
     private readonly ApplicationDbContext _context;
     internal readonly DbSet<T> dbSet;
@@ -16,7 +17,10 @@ public class Repository<T> : IRepository<T> where T : class
         dbSet = _context.Set<T>();
     }
 
-    public IEnumerable<T> GetAll(Expression<Func<T,bool>>? filter, string? includeProperties = null)
+    public IEnumerable<T> GetAll(
+        Expression<Func<T, bool>>? filter,
+        string? includeProperties = null
+    )
     {
         IQueryable<T> query = dbSet;
         if (filter != null)
@@ -25,8 +29,12 @@ public class Repository<T> : IRepository<T> where T : class
         }
         if (!string.IsNullOrEmpty(includeProperties))
         {
-            foreach (var includeProp in includeProperties
-                         .Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries))
+            foreach (
+                var includeProp in includeProperties.Split(
+                    new[] { ',' },
+                    StringSplitOptions.RemoveEmptyEntries
+                )
+            )
             {
                 query = query.Include(includeProp);
             }
@@ -35,7 +43,11 @@ public class Repository<T> : IRepository<T> where T : class
         return query.ToList();
     }
 
-    public T? Get(Expression<Func<T, bool>> filter, string? includeProperties = null, bool tracked = false)
+    public T? Get(
+        Expression<Func<T, bool>> filter,
+        string? includeProperties = null,
+        bool tracked = false
+    )
     {
         IQueryable<T> query;
         if (tracked)
@@ -50,8 +62,12 @@ public class Repository<T> : IRepository<T> where T : class
         query = query.Where(filter);
         if (!string.IsNullOrEmpty(includeProperties))
         {
-            foreach (var includeProp in includeProperties
-                         .Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries))
+            foreach (
+                var includeProp in includeProperties.Split(
+                    new[] { ',' },
+                    StringSplitOptions.RemoveEmptyEntries
+                )
+            )
             {
                 query = query.Include(includeProp);
             }

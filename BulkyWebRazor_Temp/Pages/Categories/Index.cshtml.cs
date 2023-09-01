@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace BulkyWebRazor_Temp.Pages.Categories
 {
-	public class IndexModel : PageModel
+    public class IndexModel : PageModel
     {
         private readonly ApplicationDbContext _db;
         public List<Category> CategoryList { get; set; }

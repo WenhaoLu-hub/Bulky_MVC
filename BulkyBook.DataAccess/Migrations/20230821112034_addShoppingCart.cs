@@ -13,14 +13,19 @@ namespace BulkyBook.DataAccess.Migrations
         {
             migrationBuilder.CreateTable(
                 name: "ShoppingCarts",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "integer", nullable: false)
-                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    ProductId = table.Column<int>(type: "integer", nullable: false),
-                    Count = table.Column<int>(type: "integer", nullable: false),
-                    ApplicationUserId = table.Column<string>(type: "text", nullable: false)
-                },
+                columns: table =>
+                    new
+                    {
+                        Id = table
+                            .Column<int>(type: "integer", nullable: false)
+                            .Annotation(
+                                "Npgsql:ValueGenerationStrategy",
+                                NpgsqlValueGenerationStrategy.IdentityByDefaultColumn
+                            ),
+                        ProductId = table.Column<int>(type: "integer", nullable: false),
+                        Count = table.Column<int>(type: "integer", nullable: false),
+                        ApplicationUserId = table.Column<string>(type: "text", nullable: false)
+                    },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_ShoppingCarts", x => x.Id);
@@ -29,31 +34,35 @@ namespace BulkyBook.DataAccess.Migrations
                         column: x => x.ApplicationUserId,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Cascade
+                    );
                     table.ForeignKey(
                         name: "FK_ShoppingCarts_Products_ProductId",
                         column: x => x.ProductId,
                         principalTable: "Products",
                         principalColumn: "ProductId",
-                        onDelete: ReferentialAction.Cascade);
-                });
+                        onDelete: ReferentialAction.Cascade
+                    );
+                }
+            );
 
             migrationBuilder.CreateIndex(
                 name: "IX_ShoppingCarts_ApplicationUserId",
                 table: "ShoppingCarts",
-                column: "ApplicationUserId");
+                column: "ApplicationUserId"
+            );
 
             migrationBuilder.CreateIndex(
                 name: "IX_ShoppingCarts_ProductId",
                 table: "ShoppingCarts",
-                column: "ProductId");
+                column: "ProductId"
+            );
         }
 
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropTable(
-                name: "ShoppingCarts");
+            migrationBuilder.DropTable(name: "ShoppingCarts");
         }
     }
 }
