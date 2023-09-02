@@ -251,6 +251,8 @@ public class CartController : Controller
                 );
                 _unitOfWork.Save();
             }
+            HttpContext.Session.Clear();
+            
         }
 
         var shoppingCarts = _unitOfWork.ShoppingCart

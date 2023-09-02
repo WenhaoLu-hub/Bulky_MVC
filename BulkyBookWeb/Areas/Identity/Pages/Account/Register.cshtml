@@ -1,4 +1,5 @@
 ﻿@page
+@using BulkyBook.Utility
 @model RegisterModel
 
 
@@ -6,7 +7,16 @@
     <div class="card-header bg-secondary bg-gradient ml-0 py-4">
         <div class="row">
             <div class="col-12 text-center">
-                <h2 class="py-2 text-white">Register</h2>
+                @if (User.IsInRole(SD.Role_Admin))
+                {
+                    <h2 class="py-2 text-white">Register - ADMIN PORTAL</h2>
+
+                }
+                else
+                {
+                    <h2 class="py-2 text-white">Register</h2>
+
+                }
             </div>
         </div>
     </div>
@@ -17,28 +27,28 @@
                     <h3 class="border-bottom pb-3 mb-4 text-secondary text-center">Create a new account.</h3>
                     <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
                     <div class="form-floating mb-3 col-md-12">
-                        <input asp-for="Input.Email" class="form-control" autocomplete="username" aria-required="true" placeholder="name@example.com" />
+                        <input asp-for="Input.Email" class="form-control" autocomplete="username" aria-required="true" placeholder="name@example.com"/>
                         <label asp-for="Input.Email" class="ms-2 text-muted">Email</label>
                         <span asp-validation-for="Input.Email" class="text-danger"></span>
                     </div>
                     <div class="form-floating mb-3 col-md-6">
-                        <input asp-for="Input.Password" class="form-control" autocomplete="new-password" aria-required="true" placeholder="password" />
+                        <input asp-for="Input.Password" class="form-control" autocomplete="new-password" aria-required="true" placeholder="password"/>
                         <label asp-for="Input.Password" class="ms-2 text-muted">Password</label>
                         <span asp-validation-for="Input.Password" class="text-danger"></span>
                     </div>
                     <div class="form-floating mb-3 col-md-6">
-                        <input asp-for="Input.ConfirmPassword" class="form-control" autocomplete="new-password" aria-required="true" placeholder="password" />
+                        <input asp-for="Input.ConfirmPassword" class="form-control" autocomplete="new-password" aria-required="true" placeholder="password"/>
                         <label asp-for="Input.ConfirmPassword" class="ms-2 text-muted">Confirm Password</label>
                         <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
                     </div>
                     <div class="form-floating mb-3 col-md-6">
-                        <input asp-for="Input.Name" class="form-control" aria-required="true" autocomplete="Name" placeholder="Your Name" />
+                        <input asp-for="Input.Name" class="form-control" aria-required="true" autocomplete="Name" placeholder="Your Name"/>
                         <label asp-for="Input.Name" class="ms-2 text-muted">Name</label>
                         <span asp-validation-for="Input.Name" class="text-danger"></span>
                     </div>
-                    
+
                     <div class="form-floating mb-3 col-md-6">
-                        <input asp-for="Input.StreetAddress" class="form-control"  aria-required="true" autocomplete="Street Address" placeholder="Street Address" />
+                        <input asp-for="Input.StreetAddress" class="form-control" aria-required="true" autocomplete="Street Address" placeholder="Street Address"/>
                         <label asp-for="Input.StreetAddress" class="ms-2 text-muted">Street Address</label>
                         <span asp-validation-for="Input.StreetAddress" class="text-danger"></span>
                     </div>
@@ -53,7 +63,7 @@
                         <span asp-validation-for="Input.State" class="text-danger"></span>
                     </div>
                     <div class="form-floating mb-3 col-md-6">
-                        <input asp-for="Input.PostalCode" class="form-control" aria-required="true" autocomplete="Postal Code" placeholder="Postal Code" />
+                        <input asp-for="Input.PostalCode" class="form-control" aria-required="true" autocomplete="Postal Code" placeholder="Postal Code"/>
                         <label asp-for="Input.PostalCode" class="ms-2 text-muted">PostalCode</label>
                         <span asp-validation-for="Input.PostalCode" class="text-danger"></span>
                     </div>
@@ -62,20 +72,23 @@
                         <label asp-for="Input.PhoneNumber" class="ms-2 text-muted">PhoneNumber</label>
                         <span asp-validation-for="Input.PhoneNumber" class="text-danger"></span>
                     </div>
-                    <div class="form-floating mb-3 col-md-6">
-                        <select asp-for="Input.Role" asp-items="@Model.Input.RoleList" class="form-select">
-                            <option disabled="disabled" selected="selected">-Select Role-</option>
-                        </select>
-                    </div>
-                    <div class="form-floating mb-3 col-md-6">
-                        <select asp-for="Input.CompanyId" style="display: none" asp-items="@Model.Input.CompanyList" class="form-select">
-                            <option disabled="disabled" selected="selected">-Select Company-</option>
-                        </select>
-                    </div>
+                    @if (User.IsInRole(SD.Role_Admin) || User.IsInRole(SD.Role_Employee))
+                    {
+                        <div class="form-floating mb-3 col-md-6">
+                            <select asp-for="Input.Role" asp-items="@Model.Input.RoleList" class="form-select">
+                                <option disabled="disabled" selected="selected">-Select Role-</option>
+                            </select>
+                        </div>
+                        <div class="form-floating mb-3 col-md-6">
+                            <select asp-for="Input.CompanyId" style="display: none" asp-items="@Model.Input.CompanyList" class="form-select">
+                                <option disabled="disabled" selected="selected">-Select Company-</option>
+                            </select>
+                        </div>
+                    }
                     <div class="col-12">
                         <button id="registerSubmit" type="submit" class="w-100 btn btn-lg btn-primary">Register</button>
                     </div>
-                    
+
                 </form>
             </div>
             <div class="col-md-12 col-md-offset-2">
@@ -88,8 +101,10 @@
                             <div>
                                 <p>
                                     There are no external authentication services configured. See this
-                                    <a href="https://go.microsoft.com/fwlink/?LinkID=532715">article
-                                        about setting up this ASP.NET application to support logging in via external services</a>.
+                                    <a href="https://go.microsoft.com/fwlink/?LinkID=532715">
+                                        article
+                                        about setting up this ASP.NET application to support logging in via external services
+                                    </a>.
                                 </p>
                             </div>
                         }
