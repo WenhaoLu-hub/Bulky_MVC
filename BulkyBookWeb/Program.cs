@@ -1,11 +1,16 @@
+using System;
 using BulkyBook.DataAccess.Data;
 using BulkyBook.DataAccess.DbInitializer;
 using BulkyBook.DataAccess.Repository;
 using BulkyBook.DataAccess.Repository.IRepository;
 using BulkyBook.Utility;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 using Stripe;
 
 var builder = WebApplication.CreateBuilder(args);
