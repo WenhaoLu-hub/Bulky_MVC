@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "gTMQC0LWCS2DWr1IHDRTwSAVRyUaXUCRbt/SLVsJx7g=",
+  "Hash": "/KJ7jU00ElaKLZy00esIZKVKutWLKWEYpJ+4hAcOctc=",
   "Source": "BulkyBookWeb",
   "BasePath": "_content/BulkyBookWeb",
   "Mode": "Default",
@@ -1273,6 +1273,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/js/site.js"
+    },
+    {
+      "Identity": "/Users/darwin/RiderProjects/Bulky/BulkyBookWeb/wwwroot/js/user.js",
+      "SourceId": "BulkyBookWeb",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/darwin/RiderProjects/Bulky/BulkyBookWeb/wwwroot/",
+      "BasePath": "_content/BulkyBookWeb",
+      "RelativePath": "js/user.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/js/user.js"
     },
     {
       "Identity": "/Users/darwin/RiderProjects/Bulky/BulkyBookWeb/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.css",

@@ -149,7 +149,8 @@ public class OrderController : Controller
         );
 
         //stripe logic
-        var domain = "http://localhost:5088/";
+        
+        var domain = Request.Scheme+"://"+Request.Host.Value+"/";
         var createOptions = new SessionCreateOptions
         {
             SuccessUrl =

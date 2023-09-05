@@ -53,6 +53,10 @@
       "PackagePath": "staticwebassets/js/site.js"
     },
     {
+      "Id": "/Users/darwin/RiderProjects/Bulky/BulkyBookWeb/wwwroot/js/user.js",
+      "PackagePath": "staticwebassets/js/user.js"
+    },
+    {
       "Id": "/Users/darwin/RiderProjects/Bulky/BulkyBookWeb/wwwroot/lib/bootstrap/LICENSE",
       "PackagePath": "staticwebassets/lib/bootstrap"
     },

@@ -181,7 +181,7 @@ public class CartController : Controller
         if (applicationUser.CompanyId.GetValueOrDefault() == 0)
         {
             //regular customer
-            var domain = "http://localhost:5088/";
+            var domain = Request.Scheme + "://"+Request.Host.Value+"/";
             var options = new SessionCreateOptions
             {
                 SuccessUrl =
