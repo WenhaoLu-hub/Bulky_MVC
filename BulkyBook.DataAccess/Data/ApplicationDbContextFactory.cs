@@ -9,7 +9,7 @@ public class ApplicationDbContextFactory : IDesignTimeDbContextFactory<Applicati
     {
         var optionsBuilder = new DbContextOptionsBuilder<ApplicationDbContext>();
         optionsBuilder.UseNpgsql(
-            "User ID=postgres;Host=localhost;Port=5432;Database=bulky;Pooling=true;Connection Lifetime=0;"
+            "host=bulky.co6rikke7jlw.ap-southeast-2.rds.amazonaws.com;Port=5432;Username=darwin;Password=1288jjj.;Database=bulky_demo;"
         );
         return new ApplicationDbContext(optionsBuilder.Options);
     }
